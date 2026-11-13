@@ -26,8 +26,8 @@ nav .nav-active:after{content:"";position:absolute;bottom:0;left:0;right:0;heigh
 .location{display:flex;align-items:center;gap:7px;color:#79776f;font-size:11px}
 .location i,.live-dot{width:7px;height:7px;border-radius:50%;background:#81a16b;display:inline-block}
 .profile-main{display:flex;align-items:center;gap:27px;padding:32px 0 25px;position:relative;z-index:1}
-.avatar{height:92px;width:92px;flex:0 0 92px;border-radius:50%;display:grid;place-items:center;background:#f5e4dd;border:5px solid white;box-shadow:0 0 0 1px #eeded7;color:#a44339;font-family:Georgia,serif;font-size:43px;font-style:italic}
-.avatar span{color:var(--red)}
+.avatar{height:92px;width:92px;flex:0 0 92px;border-radius:50%;overflow:hidden;background:#f5e4dd;border:5px solid white;box-shadow:0 0 0 1px #eeded7}
+.avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 28%}
 .profile-copy{max-width:620px}
 .profile-kicker{margin:0 0 7px;font-size:11px;color:var(--muted);letter-spacing:1px}
 .profile-copy h1{font-size:31px;letter-spacing:.2px;margin:0 0 7px;font-weight:700}
@@ -94,16 +94,13 @@ nav .nav-active:after{content:"";position:absolute;bottom:0;left:0;right:0;heigh
 .result-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 .result-tags span{font-size:9px;line-height:1.5;padding:5px 8px;border-radius:3px;background:#fff0ec;color:#a8473e}
 .experience-featured{border-color:#eadbd4;background:linear-gradient(145deg,#fffdf9,#fffaf7)}
-.related-experience{margin-top:13px;padding:16px 19px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.related-experience p{font-size:10px;line-height:1.9;color:#79766e;margin:0}
-.related-experience strong{color:#39362f}
 .contact-section{padding-top:27px;padding-bottom:45px}
 .contact-card{position:relative;overflow:hidden;background:#302c28;color:white;padding:29px 34px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;gap:25px}
 .contact-card .eyebrow{color:#ef9b8c}.contact-card h2{font-size:21px;line-height:1.5;margin:9px 0 0}
 .contact-side{max-width:290px;position:relative;z-index:1}
 .contact-side p{font-size:10px;line-height:1.8;color:#d1cbc1;margin:0 0 12px}
 .contact-link{display:inline-block;color:#fff;background:var(--red);padding:9px 14px;border-radius:4px;font-size:10px}
-.contact-star{position:absolute;right:30%;top:-42px;font-size:180px;color:#ffffff08}
+#contact-actions{display:flex;gap:8px;flex-wrap:wrap}
 footer{padding:0 0 23px;display:flex;align-items:center;justify-content:space-between;color:#99958b;font-size:9px;letter-spacing:.5px}
 .footer-brand{font-size:15px;font-weight:800;color:#36332e}
 .player-dialog{width:min(700px,94vw);max-height:92dvh;border:1px solid #eae5dc;border-radius:9px;padding:0;background:#fffdf9;color:var(--ink);box-shadow:0 24px 90px #15120e55}
@@ -119,7 +116,7 @@ footer{padding:0 0 23px;display:flex;align-items:center;justify-content:space-be
 @media(max-width:720px){
   .wrap{width:calc(100% - 32px)}.topbar-inner{width:calc(100% - 32px)}
   .profile-card{padding:21px 20px 0}.profile-decoration{right:-75px;top:72px;opacity:.55}
-  .profile-main{gap:17px;padding:24px 0 21px}.avatar{width:70px;height:70px;flex-basis:70px;font-size:33px}
+  .profile-main{gap:17px;padding:24px 0 21px}.avatar{width:70px;height:70px;flex-basis:70px}
   .profile-copy h1{font-size:24px}.profile-intro{font-size:11px;max-width:440px}.profile-role{font-size:10px}
   .profile-stats{gap:17px}.stats-note{font-size:9px;max-width:100px;text-align:right}
   .video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 13px}
@@ -129,7 +126,7 @@ footer{padding:0 0 23px;display:flex;align-items:center;justify-content:space-be
   .section-heading h2{font-size:21px}.section-sub{max-width:280px;line-height:1.7}
   .about-strip{grid-template-columns:1fr;gap:14px;padding:22px;margin-top:48px}
   .experience-section{padding-top:43px}.experience-grid{grid-template-columns:1fr;gap:10px}
-  .experience-card{padding:18px}.related-experience{padding:14px 12px}
+  .experience-card{padding:18px}
 }
 @media(max-width:430px){
   nav{gap:20px;font-size:11px}.top-cta{font-size:10px;padding:8px 11px}

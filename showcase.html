@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#fffdf9">
   <meta name="description" content="圣梦婧主播作品集与直播经历，展示3C数码、服饰和高客单价品类直播切片、主播经验与代表性业绩。">
   <title>圣梦婧｜带货主播作品集与直播经历</title>
-  <link rel="stylesheet" href="./showcase.css?v=resume-2026-11-13">
+  <link rel="stylesheet" href="./showcase.css?v=resume-2026-11-13-contact-final">
 </head>
 <body>
   <header class="topbar" id="topbar">
@@ -17,11 +17,11 @@
     </div>
   </header>
   <main>
-    <section class="profile-shell wrap" id="about">
+    <section class="profile-shell wrap" id="profile">
       <div class="profile-card">
         <div class="profile-topline"><span class="eyebrow">LIVE COMMERCE · VIDEO PORTFOLIO</span><span class="location"><i></i>深圳</span></div>
         <div class="profile-main">
-          <div class="avatar" aria-label="JIN文字头像">J<span>.</span></div>
+          <div class="avatar"><img src="./portrait.png" alt="圣梦婧证件照"></div>
           <div class="profile-copy">
             <p class="profile-kicker">主播视频作品集</p>
             <h1>圣梦婧 <span>JIN</span></h1>
@@ -50,7 +50,7 @@
       <p class="privacy-note"><span>ⓘ</span> 视频按需播放，不会自动加载整段内容。切片仅用于展示主播作品。</p>
     </section>
 
-    <section class="about-strip wrap">
+    <section class="about-strip wrap" id="about">
       <div class="about-title"><p class="eyebrow">ON CAMERA</p><h2>表达产品，<br>也回应观众。</h2></div>
       <div class="about-detail"><p>围绕产品特点和使用场景组织讲解，关注观众反馈，灵活调整互动和直播节奏。通过真实切片，呈现不同品类的直播表达方式。</p><div class="skill-list"><span>卖点讲解</span><span>场景呈现</span><span>互动答疑</span><span>节奏把控</span><span>数据复盘</span></div></div>
     </section>
@@ -90,13 +90,10 @@
           <p>承担天猫、抖音3C产品直播，完成产品熟悉、讲解准备、设备与商品链接检查，并根据观众互动调整讲解方式和促单节奏。</p>
         </article>
       </div>
-      <div class="related-experience">
-        <p><strong>相关内容与营销经验</strong>　2024.07-2025.06 海外数字营销顾问，跟进Google及社媒广告数据与客户优化建议；2024.04-2024.05 海外社媒运营，负责TikTok、Facebook内容策划和数据复盘；2023.09-2023.11 TikTok视频剪辑，参与跨境短视频制作、多账号分发及内容效果复盘。</p>
-      </div>
     </section>
 
     <section class="contact-section wrap" id="contact">
-      <div class="contact-card"><div><p class="eyebrow">LET’S CONNECT</p><h2>期待下一次<br>镜头前的合作。</h2></div><div class="contact-side"><p id="contact-note">公开联系方式尚未添加。联系信息补充后，可在此展示合作入口。</p><div id="contact-actions"></div></div><span class="contact-star" aria-hidden="true">✳</span></div>
+      <div class="contact-card"><div><p class="eyebrow">LET’S CONNECT</p><h2>期待下一次<br>镜头前的合作。</h2></div><div class="contact-side"><p id="contact-note">欢迎联系主播岗位及直播合作。</p><div id="contact-actions"></div></div></div>
     </section>
   </main>
   <footer class="wrap"><a class="footer-brand" href="#">JIN<span>.</span></a><span>主播作品集 · 深圳</span><a href="#topbar">回到顶部 ↑</a></footer>
@@ -108,7 +105,7 @@
     <p class="player-error" id="player-error" role="status">兼容提示：原始切片为 HEVC 编码，部分浏览器可能无法播放。公开分享前建议转为 H.264 MP4。</p>
   </dialog>
 
-  <script src="./portfolio.config.js?v=resume-2026-11-13"></script>
+  <script src="./portfolio.config.js?v=resume-2026-11-13-contact-final"></script>
   <script>
     (() => {
       const config = window.PORTFOLIO || {};
@@ -221,11 +218,19 @@
         document.getElementById("profile-actions").append(resumeLink);
       }
 
+      const contactActions = document.getElementById("contact-actions");
+      if (config.phone && /^[+\d\s()-]{8,24}$/.test(config.phone)) {
+        const phoneLink = make("a", "contact-link", `手机：${config.phone}`);
+        phoneLink.href = `tel:${config.phone.replace(/[^\d+]/g, "")}`;
+        contactActions.append(phoneLink);
+      }
       if (config.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email)) {
-        const link = make("a", "contact-link", "发送邮件 ↗");
-        link.href = `mailto:${encodeURIComponent(config.email)}`;
-        document.getElementById("contact-actions").append(link);
-        document.getElementById("contact-note").textContent = "欢迎联系主播岗位及直播合作。";
+        const emailLink = make("a", "contact-link", `邮箱：${config.email}`);
+        emailLink.href = `mailto:${encodeURIComponent(config.email)}`;
+        contactActions.append(emailLink);
+      }
+      if (!contactActions.childElementCount) {
+        document.getElementById("contact-note").textContent = "合作联系入口暂未配置。";
       }
       render();
     })();
