@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="refresh" content="0; url=./showcase.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="description" content="主播个人视频作品集，展示直播切片、产品讲解与短视频内容。">
+  <title>JIN · 主播视频作品集</title>
+  <style>
+    :root{--bg:#f5f3ed;--ink:#242821;--muted:#70746b;--line:#dcded4;--green:#405c3c;--lime:#d6e8a9;--white:#fffef9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}button,a,input{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #78964b;outline-offset:5px}button:disabled{cursor:default}::selection{background:var(--lime)}.wrap{max-width:1200px;margin:auto;padding:0 44px}
+    header{position:sticky;top:0;z-index:10;background:#f5f3edf2;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:82px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:26px;font-weight:850;letter-spacing:-1.5px}.brand i{font-style:normal;color:var(--green)}nav{display:flex;gap:30px;align-items:center;font-size:13px}.nav-contact{padding:11px 20px;border:1px solid var(--ink);border-radius:30px}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:650}.hero{padding-top:77px;padding-bottom:70px;display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}.availability{display:inline-flex;gap:9px;align-items:center;font-size:12px;color:var(--green)}.dot{width:7px;height:7px;border-radius:50%;background:#719359}.hero h1{font-size:clamp(48px,6vw,76px);letter-spacing:-3px;line-height:1.15;margin:25px 0}.hero h1 .serif{font-family:Georgia,serif;font-weight:400;font-style:italic;color:var(--green)}.lead{font-size:20px;font-weight:500;line-height:1.6;max-width:480px}.desc{font-size:14px;line-height:1.9;color:var(--muted);max-width:440px}.actions{display:flex;gap:13px;margin:30px 0}.button{display:inline-flex;align-items:center;justify-content:center;gap:24px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:14px 23px;border-radius:6px;font-size:13px}.button.primary{background:var(--ink);color:white}.button:hover{transform:translateY(-2px)}.hero-note{font-size:11px;color:var(--muted);letter-spacing:1px}
+    .hero-art{min-height:410px;position:relative;border-radius:160px 160px 12px 12px;background:#e5e7da;overflow:hidden;display:flex;justify-content:center;align-items:center}.art-orbit{position:absolute;width:340px;height:340px;border:1px solid #bcc5b1;border-radius:50%}.art-orbit.second{width:440px;height:440px}.phone{width:182px;height:310px;border-radius:28px;background:#354734;transform:rotate(9deg);padding:10px;box-shadow:18px 28px 45px #28372128;position:relative}.phone-screen{height:100%;border:1px solid #b1c29e60;border-radius:20px;background:linear-gradient(155deg,#63815b,#2b3b2a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.screen-word{font-family:Georgia,serif;font-size:67px;font-style:italic;color:#e9eddb;letter-spacing:-6px;transform:rotate(-9deg)}.screen-top{position:absolute;top:16px;left:17px;font-size:8px;color:#e0e6d7;letter-spacing:2px}.screen-bottom{position:absolute;bottom:21px;left:17px;right:17px;font-size:10px;color:#e0e6d7;border-top:1px solid #c6d1b94a;padding-top:12px;line-height:1.8}.floating-label{position:absolute;left:20px;bottom:37px;background:var(--white);border:1px solid #e1e2d8;box-shadow:0 8px 24px #2428210c;padding:14px 18px;border-radius:7px;font-size:11px;line-height:1.9;transform:rotate(-5deg)}.floating-label strong{display:block;font-size:14px}.art-corner{position:absolute;right:20px;top:30px;font-size:10px;letter-spacing:2px;color:#61715a;writing-mode:vertical-rl}.ticker{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:23px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:12px;color:#535e4e}.ticker span:before{content:"✳";margin-right:10px;color:#71845a}
+    section{padding:65px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:27px}.section-head h2{font-size:32px;font-weight:600;letter-spacing:-1px;margin:10px 0 0}.section-head p{font-size:12px;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}.filter{border:1px solid var(--line);border-radius:30px;padding:9px 17px;background:transparent;font-size:12px;color:var(--muted)}.filter.active{background:var(--ink);border-color:var(--ink);color:white}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 25px}.card{min-width:0}.thumb{width:100%;aspect-ratio:16/10;border:0;border-radius:9px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;background:#e0e4d6;color:var(--ink)}.card:nth-child(4n+2) .thumb{background:#e6dfd3}.card:nth-child(4n+3) .thumb{background:#dddfe2}.card:nth-child(4n+4) .thumb{background:#e4e1da}.thumb:after{position:absolute;inset:20px;border:1px solid #ffffff88;border-radius:3px;content:"";pointer-events:none}.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.video-code{font-family:Georgia,serif;font-style:italic;font-size:84px;opacity:.16;letter-spacing:-7px}.play{position:absolute;width:55px;height:55px;border-radius:50%;background:#fffef9e6;display:grid;place-items:center;font-size:17px;padding-left:3px;box-shadow:0 6px 25px #00000008;transition:transform .2s}.thumb:hover .play{transform:scale(1.1)}.video-label{position:absolute;left:33px;top:32px;font-size:10px;letter-spacing:2px}.video-status{position:absolute;bottom:31px;right:32px;background:#fffef9de;padding:6px 10px;border-radius:3px;font-size:10px}.card-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:17px}.card h3{font-size:17px;margin:0;font-weight:600}.card-no{font-family:Georgia,serif;font-size:15px;color:var(--muted)}.card p{font-size:12px;line-height:1.8;color:var(--muted);margin:9px 0}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:10px;border:1px solid var(--line);padding:4px 7px;border-radius:3px;color:#66715d}.empty-note{font-size:12px;color:var(--muted);line-height:1.8;border-left:2px solid #a9b799;padding-left:12px;margin-top:27px}.about{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.5fr;gap:60px}.about h2{font-size:32px;margin:12px 0}.about-text{font-size:16px;line-height:2;margin-top:0}.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}.skill{border-top:1px solid var(--line);padding-top:15px}.skill b{font-size:13px}.skill p{font-size:12px;line-height:1.8;color:var(--muted)}.contact{padding:43px;border-radius:10px;background:#e1e8d6;display:flex;justify-content:space-between;align-items:center;gap:25px}.contact h2{font-size:30px;line-height:1.5;margin:8px 0}.contact p{font-size:13px;color:#5b6951;line-height:1.8}.contact-actions{display:flex;gap:10px;flex-wrap:wrap}.contact-status{font-size:12px;color:#5b6951;max-width:240px;line-height:1.8}.contact button{white-space:nowrap}footer{display:flex;justify-content:space-between;gap:15px;padding:28px 0;font-size:10px;color:var(--muted);border-top:1px solid var(--line);letter-spacing:1px}
+    dialog{border:1px solid var(--line);border-radius:12px;padding:0;background:var(--white);color:var(--ink);width:min(870px,94vw);max-height:90dvh}dialog::backdrop{background:#142013b8;backdrop-filter:blur(5px)}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 22px;border-bottom:1px solid var(--line)}.dialog-head h3{margin:0;font-size:15px}.close{background:transparent;border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:20px}.dialog-body{padding:22px}.dialog-body video{width:100%;max-height:65dvh;background:#161b15;border-radius:6px;display:block}.placeholder{padding:34px 10px;text-align:center}.placeholder h4{font-size:21px;margin:0 0 14px}.placeholder p{font-size:13px;color:var(--muted);line-height:1.9;max-width:420px;margin:0 auto 22px}.placeholder input{max-width:100%;font-size:12px}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;font-size:12px;border-radius:5px;z-index:30;max-width:90vw;text-align:center}
+    @media(min-width:1500px){.hero{padding-top:95px;padding-bottom:90px}}@media(max-width:800px){.wrap{padding:0 24px}.hero{gap:28px;padding-top:42px;padding-bottom:42px}.hero h1{font-size:51px}.hero-art{min-height:355px}.phone{width:155px;height:265px}.floating-label{left:8px;font-size:9px;padding:10px}.floating-label strong{font-size:12px}.about{gap:30px}.skills{gap:10px}.contact{padding:28px}.contact h2{font-size:25px}}@media(max-width:580px){.wrap{padding:0 20px}.nav{height:68px}nav{gap:16px;font-size:12px}.nav-contact{padding:8px 12px}.hero{grid-template-columns:1fr;gap:30px}.hero h1{font-size:57px;margin:20px 0}.hero-art{min-height:310px;border-radius:130px 130px 8px 8px}.phone{height:260px}.floating-label{left:26px;bottom:26px}.art-orbit{width:280px;height:280px}.art-orbit.second{width:380px;height:380px}.lead{font-size:18px}.ticker{justify-content:start;gap:15px 24px;font-size:11px}section{padding:45px 0}.section-head{align-items:start}.section-head h2{font-size:28px}.section-head p{max-width:110px;line-height:1.8;margin:20px 0 0}.grid{grid-template-columns:1fr;gap:28px}.about{grid-template-columns:1fr;gap:15px}.skills{grid-template-columns:1fr}.skill p{margin-bottom:0}.contact{flex-direction:column;align-items:start;padding:26px}.contact h2{font-size:26px}footer{font-size:9px;letter-spacing:0}.button{padding:13px 19px}.hero-note{font-size:10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap nav"><a class="brand" href="#" aria-label="返回首页">JIN<i>.</i></a><nav aria-label="主导航"><a href="#works">作品</a><a href="#about">关于</a><a class="nav-contact" href="#contact">联系合作 ↗</a></nav></div></header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="availability"><span class="dot"></span><span id="location">深圳 · 主播作品档案</span></div>
+        <h1>你好，我是<span id="name">圣梦婧</span>。<br><span class="serif">On air,</span> 用心表达。</h1>
+        <p class="lead" id="introduction">把产品讲清楚，让观众愿意多停留一会。</p>
+        <p class="desc" id="description">关注产品表达、直播互动与节奏把控。这里用于展示直播切片、产品讲解和短视频作品。</p>
+        <div class="actions"><a class="button primary" href="#works">浏览视频作品 <span>↗</span></a><a class="button" href="#contact">联系合作 <span>→</span></a></div>
+        <div class="hero-note">LIVE COMMERCE / PRODUCT STORYTELLING</div>
+      </div>
+      <div class="hero-art" role="img" aria-label="以手机和JIN字样组成的主播作品集装饰插画">
+        <div class="art-orbit"></div><div class="art-orbit second"></div>
+        <div class="phone"><div class="phone-screen"><span class="screen-top">PERSONAL PORTFOLIO</span><span class="screen-word">Jin.</span><div class="screen-bottom">让每一次讲解<br>都有值得被听见的理由。</div></div></div>
+        <div class="floating-label">PRODUCT × CONTENT<strong>讲解 · 互动 · 节奏</strong></div><span class="art-corner">A VOICE BEHIND THE PRODUCT</span>
+      </div>
+    </section>
+    <div class="ticker" aria-label="能力方向"><span>产品讲解</span><span>直播互动</span><span>场景表达</span><span>内容剪辑</span><span>数据复盘</span></div>
+    <section id="works">
+      <div class="section-head"><div><div class="eyebrow">SELECTED WORK</div><h2>让作品说话。</h2></div><p>直播切片 / 产品讲解 / 短视频</p></div>
+      <div class="filters" id="filters" aria-label="作品分类"></div>
+      <div class="grid" id="video-grid"></div>
+      <p class="empty-note" id="empty-note">作品位已预留，真实视频待补充。当前没有公开视频，不代表实际合作案例。</p>
+    </section>
+    <section class="about" id="about">
+      <div><div class="eyebrow">BEHIND THE CAMERA</div><h2>不只出镜，<br>也关心内容本身。</h2></div>
+      <div><p class="about-text">好的讲解，从理解产品和观众开始。把复杂信息讲得清楚，把真实使用场景讲得具体，再根据互动反馈调整节奏。</p>
+        <div class="skills"><div class="skill"><b>01 / 卖点表达</b><p>从功能、需求和使用场景中，找到容易理解的讲解切入点。</p></div><div class="skill"><b>02 / 现场互动</b><p>关注观众提问与即时反馈，配合直播流程组织内容。</p></div><div class="skill"><b>03 / 复盘调整</b><p>结合内容表现和直播反馈，持续调整表达与节奏。</p></div></div>
+      </div>
+    </section>
+    <section id="contact"><div class="contact"><div><div class="eyebrow">LET’S TALK</div><h2>下一场直播，<br>聊聊我们能做什么。</h2><p>主播岗位 · 直播合作 · 产品视频</p></div><div id="contact-actions" class="contact-actions"></div></div></section>
+    <footer><span id="copyright">© JIN · 主播视频作品集</span><span>认真表达，真实呈现。 ↑ <a href="#">返回顶部</a></span></footer>
+  </main>
+  <dialog id="video-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><h3 id="dialog-title">视频作品</h3><button class="close" id="close-dialog" aria-label="关闭视频">×</button></div><div class="dialog-body" id="dialog-body"></div></dialog>
+  <script src="./portfolio.config.js"></script>
+  <script>
+    (() => {
+      const c = window.PORTFOLIO || {};
+      const $ = id => document.getElementById(id);
+      const videos = Array.isArray(c.videos) ? c.videos : [];
+      const safeUrl = value => {
+        if (typeof value !== "string" || !value.trim()) return "";
+        try { const u = new URL(value, location.href); return ["http:", "https:"].includes(u.protocol) ? u.href : ""; } catch { return ""; }
+      };
+      const text = (tag, content, cls) => { const e = document.createElement(tag); e.textContent = content; if (cls) e.className = cls; return e; };
+      if (c.name) { $("name").textContent = c.name; document.title = `${c.name} · 主播视频作品集`; }
+      $("location").textContent = `${c.city || "深圳"} · 主播作品档案`;
+      if (c.introduction) $("introduction").textContent = c.introduction;
+      if (c.description) $("description").textContent = c.description;
+      $("copyright").textContent = `© ${new Date().getFullYear()} ${c.englishName || "JIN"} · 主播视频作品集`;
+      let objectUrl = null;
+      const dialog = $("video-dialog");
+      function cleanup() {
+        const v = dialog.querySelector("video");
+        if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
+        if (objectUrl) { URL.revokeObjectURL(objectUrl); objectUrl = null; }
+        $("dialog-body").replaceChildren();
+      }
+      function mountVideo(src, title) {
+        const v = document.createElement("video");
+        v.controls = true; v.playsInline = true; v.preload = "metadata"; v.src = src;
+        v.setAttribute("aria-label", title);
+        const error = text("p", "视频无法加载。请检查地址是否公开可访问，以及视频是否为浏览器支持的格式。", "empty-note");
+        error.hidden = true; v.addEventListener("error", () => { error.hidden = false; });
+        $("dialog-body").replaceChildren(v, error);
+      }
+      function openVideo(item) {
+        cleanup(); $("dialog-title").textContent = item.title;
+        if (safeUrl(item.src)) mountVideo(safeUrl(item.src), item.title);
+        else {
+          const box = document.createElement("div"); box.className = "placeholder";
+          box.append(text("h4", "这一段，留给真实作品。"), text("p", "该作品尚未配置公开视频。你可以选择本机视频预览，但不会上传；其他访客看不到本次选择。"));
+          const input = document.createElement("input"); input.type = "file"; input.accept = "video/*"; input.setAttribute("aria-label", "选择本机视频，仅本机预览");
+          input.addEventListener("change", () => {
+            const file = input.files && input.files[0];
+            if (!file) return;
+            if (file.type && !file.type.startsWith("video/")) { toast("请选择视频文件"); return; }
+            objectUrl = URL.createObjectURL(file); mountVideo(objectUrl, item.title);
+          });
+          box.append(input); $("dialog-body").append(box);
+        }
+        dialog.showModal();
+      }
+      function render(filter = "全部作品") {
+        $("video-grid").replaceChildren();
+        videos.filter(v => filter === "全部作品" || v.category === filter).forEach((item, index) => {
+          const article = document.createElement("article"); article.className = "card";
+          const button = document.createElement("button"); button.className = "thumb"; button.type = "button"; button.setAttribute("aria-label", `${safeUrl(item.src) ? "播放" : "查看待补充作品"}：${item.title}`);
+          if (safeUrl(item.poster)) { const img = document.createElement("img"); img.src = safeUrl(item.poster); img.alt = ""; img.loading = "lazy"; button.append(img); }
+          else button.append(text("span", c.englishName || "Jin.", "video-code"));
+          button.append(text("span", "▶", "play"), text("span", item.category || "视频作品", "video-label"), text("span", safeUrl(item.src) ? "播放作品 ↗" : "待添加视频", "video-status"));
+          button.addEventListener("click", () => openVideo(item));
+          const meta = document.createElement("div"); meta.className = "card-meta"; meta.append(text("h3", item.title), text("span", String(index + 1).padStart(2, "0"), "card-no"));
+          const tags = document.createElement("div"); tags.className = "tags"; (Array.isArray(item.tags) ? item.tags : []).forEach(t => tags.append(text("span", t, "tag")));
+          article.append(button, meta, text("p", item.subtitle || ""), tags); $("video-grid").append(article);
+        });
+      }
+      ["全部作品", ...new Set(videos.map(v => v.category).filter(Boolean))].forEach((label, index) => {
+        const b = text("button", label, "filter" + (index === 0 ? " active" : "")); b.type = "button"; b.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+        b.addEventListener("click", () => { document.querySelectorAll(".filter").forEach(x => { x.classList.toggle("active", x === b); x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); render(label); });
+        $("filters").append(b);
+      });
+      const ready = videos.filter(v => safeUrl(v.src)).length;
+      $("empty-note").hidden = ready === videos.length && videos.length > 0;
+      if (ready) $("empty-note").textContent = "部分作品仍在整理中，标注“待添加视频”的作品位暂无公开视频。";
+      function toast(message) {
+        document.querySelector(".toast")?.remove(); const el = text("div", message, "toast"); el.setAttribute("role", "status"); document.body.append(el); setTimeout(() => el.remove(), 4000);
+      }
+      const contact = $("contact-actions");
+      if (typeof c.email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) {
+        const a = text("a", "发送邮件 ↗", "button primary"); a.href = `mailto:${encodeURIComponent(c.email)}`; contact.append(a);
+      }
+      if (typeof c.wechat === "string" && c.wechat.trim()) {
+        const b = text("button", "复制微信号", "button"); b.type = "button";
+        b.addEventListener("click", async () => { try { await navigator.clipboard.writeText(c.wechat); toast("微信号已复制"); } catch { toast(`微信号：${c.wechat}`); } }); contact.append(b);
+      }
+      if (safeUrl(c.resumeUrl)) { const a = text("a", "查看简历 ↗", "button"); a.href = safeUrl(c.resumeUrl); a.target = "_blank"; a.rel = "noopener noreferrer"; contact.append(a); }
+      if (!contact.children.length) contact.append(text("p", "联系方式尚未公开，可通过分享此页面的人联系本人。", "contact-status"));
+      $("close-dialog").addEventListener("click", () => dialog.close());
+      dialog.addEventListener("close", cleanup);
+      dialog.addEventListener("click", e => { const r = dialog.getBoundingClientRect(); if (e.target === dialog && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) dialog.close(); });
+      render();
+    })();
+  </script>
+</body>
+</html>

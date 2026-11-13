@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fffdf9">
+  <meta name="description" content="圣梦婧主播视频作品集，展示3C数码、鞋服服饰和高客单价商品直播切片。">
+  <title>圣梦婧｜主播作品集</title>
+  <link rel="stylesheet" href="./showcase.css">
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="#" aria-label="JIN作品集首页"><span class="logo-mark">J</span><span>JIN<span class="logo-dot">.</span></span></a>
+      <nav aria-label="主导航"><a class="nav-active" href="#works">作品</a><a href="#about">关于</a></nav>
+      <a class="top-cta" href="#contact">合作联系 <span>↗</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="profile-shell wrap" id="about">
+      <div class="profile-card">
+        <div class="profile-topline"><span class="eyebrow">LIVE COMMERCE · VIDEO PORTFOLIO</span><span class="location"><i></i>深圳</span></div>
+        <div class="profile-main">
+          <div class="avatar" aria-label="JIN文字头像">J<span>.</span></div>
+          <div class="profile-copy">
+            <p class="profile-kicker">主播视频作品集</p>
+            <h1>圣梦婧 <span>JIN</span></h1>
+            <p class="profile-role">带货主播 <b>·</b> 产品讲解 <b>·</b> 直播互动</p>
+            <p class="profile-intro">镜头前，把产品讲明白。按品类整理的真实直播切片，记录产品讲解、互动答疑与现场节奏。</p>
+            <div class="profile-actions"><a class="btn btn-red" href="#works">看作品 <span>↓</span></a><button class="btn btn-light" id="share-button" type="button">分享作品集 <span>↗</span></button></div>
+          </div>
+        </div>
+        <div class="profile-stats" aria-label="作品集概况">
+          <div><strong id="works-count">9</strong><span>段视频</span></div>
+          <div><strong>3</strong><span>个品类</span></div>
+          <div><strong>深圳</strong><span>所在城市</span></div>
+          <div class="stats-note">点击作品卡片播放完整切片</div>
+        </div>
+        <div class="profile-decoration" aria-hidden="true"><span>LIVE</span><span>ON AIR</span><div class="deco-orbit"></div></div>
+      </div>
+    </section>
+
+    <section class="works-section wrap" id="works">
+      <div class="section-heading">
+        <div><p class="eyebrow">SELECTED VIDEO CUTS</p><h2>直播作品 <span id="filtered-count"></span></h2><p class="section-sub">从3C数码到服饰与高客单价商品，按实际切片分类浏览。</p></div>
+        <div class="view-label"><span class="live-dot"></span> VIDEO ARCHIVE</div>
+      </div>
+      <div class="filter-row" id="filters" role="group" aria-label="按商品品类筛选"></div>
+      <div class="video-grid" id="video-grid"></div>
+      <p class="privacy-note"><span>ⓘ</span> 视频按需播放，不会自动加载整段内容。切片仅用于展示主播作品。</p>
+    </section>
+
+    <section class="about-strip wrap">
+      <div class="about-title"><p class="eyebrow">ON CAMERA</p><h2>表达产品，<br>也回应观众。</h2></div>
+      <div class="about-detail"><p>围绕产品特点和使用场景组织讲解，关注观众反馈，灵活调整互动和直播节奏。通过真实切片，呈现不同品类的直播表达方式。</p><div class="skill-list"><span>卖点讲解</span><span>场景呈现</span><span>互动答疑</span><span>节奏把控</span><span>数据复盘</span></div></div>
+    </section>
+
+    <section class="contact-section wrap" id="contact">
+      <div class="contact-card"><div><p class="eyebrow">LET’S CONNECT</p><h2>期待下一次<br>镜头前的合作。</h2></div><div class="contact-side"><p id="contact-note">公开联系方式尚未添加。联系信息补充后，可在此展示合作入口。</p><div id="contact-actions"></div></div><span class="contact-star" aria-hidden="true">✳</span></div>
+    </section>
+  </main>
+  <footer class="wrap"><a class="footer-brand" href="#">JIN<span>.</span></a><span>主播作品集 · 深圳</span><a href="#topbar">回到顶部 ↑</a></footer>
+
+  <dialog class="player-dialog" id="player-dialog" aria-labelledby="player-title">
+    <div class="player-head"><div><p class="eyebrow">VIDEO CUT</p><h2 id="player-title">作品播放</h2></div><button class="close-button" id="close-player" type="button" aria-label="关闭">×</button></div>
+    <div class="player-body" id="player-body"></div>
+    <p class="player-caption" id="player-caption"></p>
+    <p class="player-error" id="player-error" role="status">兼容提示：原始切片为 HEVC 编码，部分浏览器可能无法播放。公开分享前建议转为 H.264 MP4。</p>
+  </dialog>
+
+  <script src="./portfolio.config.js"></script>
+  <script>
+    (() => {
+      const config = window.PORTFOLIO || {};
+      const videos = Array.isArray(config.videos) ? config.videos : [];
+      const grid = document.getElementById("video-grid");
+      const filters = document.getElementById("filters");
+      const dialog = document.getElementById("player-dialog");
+      let activeUrl = "";
+      const safeMediaPath = value => typeof value === "string" && value.startsWith("./") && !value.slice(2).includes("/") && !value.slice(2).includes("..") && value.toLowerCase().endsWith(".mp4") ? value : "";
+      const make = (tag, cls, value) => {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        if (value !== undefined) node.textContent = value;
+        return node;
+      };
+      const categories = ["全部作品", ...new Set(videos.map(item => item.category).filter(Boolean))];
+      document.getElementById("works-count").textContent = String(videos.length).padStart(2, "0");
+
+      function closePlayer() {
+        const video = document.querySelector("#player-body video");
+        if (video) { video.pause(); video.removeAttribute("src"); video.load(); }
+        if (activeUrl.startsWith("blob:")) URL.revokeObjectURL(activeUrl);
+        activeUrl = "";
+        document.getElementById("player-body").replaceChildren();
+      }
+
+      function play(item) {
+        closePlayer();
+        document.getElementById("player-title").textContent = item.title;
+        document.getElementById("player-caption").textContent = `${item.category} · ${item.subtitle || "主播直播切片"}`;
+        const source = safeMediaPath(item.src);
+        if (!source) return;
+        const video = document.createElement("video");
+        video.src = source;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        video.setAttribute("aria-label", item.title);
+        const body = document.getElementById("player-body");
+        body.replaceChildren(video);
+        dialog.showModal();
+        const attempt = video.play();
+        if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
+      }
+
+      function render(selected = "全部作品") {
+        const visible = videos.filter(item => selected === "全部作品" || item.category === selected);
+        grid.replaceChildren();
+        document.getElementById("filtered-count").textContent = `(${String(visible.length).padStart(2, "0")})`;
+        visible.forEach((item, index) => {
+          const article = make("article", `video-card tone-${item.category === "3C数码" ? "tech" : item.category === "鞋服服饰" ? "fashion" : "value"}`);
+          const button = make("button", "video-cover");
+          button.type = "button";
+          button.setAttribute("aria-label", `播放：${item.title}`);
+          const poster = make("span", "cover-art");
+          poster.append(make("span", "cover-label", item.category), make("span", "cover-index", String(index + 1).padStart(2, "0")));
+          poster.append(make("span", "cover-word", item.category === "3C数码" ? "TECH" : item.category === "鞋服服饰" ? "STYLE" : "VALUE"));
+          poster.append(make("span", "cover-sub", item.cue || "主播直播切片"));
+          button.append(poster, make("span", "play-button", "▶"), make("span", "watch-label", "播放切片 ↗"));
+          button.addEventListener("click", () => play(item));
+          const info = make("div", "card-info");
+          const category = make("span", "card-category", item.category);
+          const title = make("h3", "", item.title);
+          const subtitle = make("p", "card-subtitle", item.subtitle || "主播直播切片");
+          info.append(category, title, subtitle);
+          article.append(button, info);
+          grid.append(article);
+        });
+      }
+
+      categories.forEach((category, index) => {
+        const button = make("button", `filter-chip${index === 0 ? " active" : ""}`, category);
+        button.type = "button";
+        button.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+        button.addEventListener("click", () => {
+          filters.querySelectorAll("button").forEach(item => {
+            const isActive = item === button;
+            item.classList.toggle("active", isActive);
+            item.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+          render(category);
+        });
+        filters.append(button);
+      });
+
+      document.getElementById("close-player").addEventListener("click", () => dialog.close());
+      dialog.addEventListener("close", closePlayer);
+      dialog.addEventListener("click", event => {
+        if (event.target === dialog) {
+          const rect = dialog.getBoundingClientRect();
+          if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+        }
+      });
+
+      const share = document.getElementById("share-button");
+      share.addEventListener("click", async () => {
+        const data = { title: document.title, text: "圣梦婧主播视频作品集", url: location.href };
+        try {
+          if (navigator.share) await navigator.share(data);
+          else if (navigator.clipboard) { await navigator.clipboard.writeText(location.href); share.textContent = "链接已复制 ✓"; setTimeout(() => share.innerHTML = "分享作品集 <span>↗</span>", 2200); }
+          else share.textContent = "请复制浏览器地址分享";
+        } catch {}
+      });
+
+      if (config.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email)) {
+        const link = make("a", "contact-link", "发送邮件 ↗");
+        link.href = `mailto:${encodeURIComponent(config.email)}`;
+        document.getElementById("contact-actions").append(link);
+        document.getElementById("contact-note").textContent = "欢迎联系主播岗位及直播合作。";
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>
