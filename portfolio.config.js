@@ -3,6 +3,7 @@ window.PORTFOLIO = {
   englishName: "JIN",
   role: "带货主播",
   city: "深圳",
+  resumeUrl: "./resume-sheng-mengjing.docx",
   introduction: "镜头前，把产品讲明白。",
   description: "按真实切片分类展示直播表达。涵盖3C数码、鞋服服饰和高客单价商品，不展示未经核实的业绩数字。",
   videos: [
